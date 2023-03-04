@@ -1,0 +1,1 @@
+<footer id="copyWrite" class="footer"></footer>
