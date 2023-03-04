@@ -1,6 +1,6 @@
 <?php
 
-$view = 'manage_user';
+$view = 'settings';
 include('./templete.php');
 
 ?>

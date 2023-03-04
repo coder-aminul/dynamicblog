@@ -31,9 +31,10 @@
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
-                    <a class="dropdown-item" href="#"><i class="dripicons-user text-muted"></i>
+                    <a class="dropdown-item" href="./profile.php"><i class="dripicons-user text-muted"></i>
                         Profile</a>
-                    <a class="dropdown-item" href="#"><span class="badge badge-success float-right m-t-5">5</span><i
+                    <a class="dropdown-item" href="./settings.php"><span
+                            class="badge badge-success float-right m-t-5">5</span><i
                             class="dripicons-gear text-muted"></i> Settings</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#"><i class="dripicons-exit text-muted"></i>
@@ -54,9 +55,9 @@
                     Create New <i class="mdi mdi-plus"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-animated">
-                    <a class="dropdown-item" href="#">Post</a>
-                    <a class="dropdown-item" href="#">Category</a>
-                    <a class="dropdown-item" href="#">User</a>
+                    <a class="dropdown-item" href="./add_post.php">Post</a>
+                    <a class="dropdown-item" href="./add_category.php">Category</a>
+                    <a class="dropdown-item" href="./add_user.php">User</a>
                 </div>
             </li>
         </ul>

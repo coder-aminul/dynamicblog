@@ -28,7 +28,16 @@ include_once('./includes/header.php');
                 <div class="page-content-wrapper">
                     <div class="container-fluid">
                         <!-- page-conatiner dynamic-->
-
+                        <!-- Routing Setup -->
+                        <?php
+                        if (isset($view)) {
+                            if ($view === "deshboard") {
+                                include('./views/deshboard_view.php');
+                            } elseif ($view === "addpost") {
+                                include('./views/addpost_view.php');
+                            }
+                        }
+                        ?>
                     </div>
                     <!-- container fluid -->
                 </div>

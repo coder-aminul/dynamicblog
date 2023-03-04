@@ -23,9 +23,9 @@
                     <a href="#" class="waves-effect"><i class="mdi mdi-note-multiple"></i><span> Post </span><span
                             class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
-                        <li><a href=""><i class="mdi mdi-note-plus-outline"></i> Add Post</a>
+                        <li><a href="./add_post.php"><i class="mdi mdi-note-plus-outline"></i> Add Post</a>
                         </li>
-                        <li><a href=""><i class="far fa-list-alt"></i> Manage Post</a></li>
+                        <li><a href="./manage_post.php"><i class="far fa-list-alt"></i> Manage Post</a></li>
                     </ul>
                 </li>
 
@@ -35,9 +35,9 @@
                         </span>
                     </a>
                     <ul class="list-unstyled">
-                        <li><a href=""><i class="mdi mdi-credit-card-plus"></i> Add Category</a>
+                        <li><a href="./add_category.php"><i class="mdi mdi-credit-card-plus"></i> Add Category</a>
                         </li>
-                        <li><a href=""><i class="far fa-list-alt"></i> Manage Category</a></li>
+                        <li><a href="./manage_category.php"><i class="far fa-list-alt"></i> Manage Category</a></li>
                     </ul>
                 </li>
                 <li class="has_sub">
@@ -46,16 +46,16 @@
                         </span>
                     </a>
                     <ul class="list-unstyled">
-                        <li><a href=""><i class="mdi mdi-account-plus"></i> Add User</a></li>
-                        <li><a href=""><i class="far fa-list-alt"></i> Manage User</a></li>
+                        <li><a href="./add_user.php"><i class="mdi mdi-account-plus"></i> Add User</a></li>
+                        <li><a href="./manage_user.php"><i class="far fa-list-alt"></i> Manage User</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect"><i class="far fa-user"></i><span> Profile </span>
+                    <a href="./profile.php" class="waves-effect"><i class="far fa-user"></i><span> Profile </span>
                     </a>
                 </li>
                 <li>
-                    <a href="" class="waves-effect"><i class="dripicons-gear"></i><span>Settings
+                    <a href="./settings.php" class="waves-effect"><i class="dripicons-gear"></i><span>Settings
                         </span>
                     </a>
                 </li>
