@@ -35,6 +35,20 @@ include_once('./includes/header.php');
                                 include('./views/deshboard_view.php');
                             } elseif ($view === "addpost") {
                                 include('./views/addpost_view.php');
+                            } elseif ($view === "manage_post") {
+                                include('./views/managepost_view.php');
+                            } else if ($view === "add_user") {
+                                include('./views/add_user_view.php');
+                            } elseif ($view === "manage_user") {
+                                include('./views/manage_user_view.php');
+                            } elseif ($view === "add_category") {
+                                include('./views/add_cataegory.php');
+                            } elseif ($view === "add_category") {
+                                include('./views/manage_category.php');
+                            } elseif ($view === "profile") {
+                                include('./views/profile_view.php');
+                            } elseif ($view === "settings") {
+                                include('./views/settings_view.php');
                             }
                         }
                         ?>
