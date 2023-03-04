@@ -1,7 +1,20 @@
 <?php
 include('./config/functions.php');
 
-$config = new Main();
+$mainObj = new Main();
+
+//Admin Login
+
+if (isset($_POST['login_btn'])) {
+    $mainObj->adminLogin($_POST);
+}
+session_start();
+if (isset($_SESSION['adminID'])) {
+    $id = $_SESSION['adminID'];
+}
+if (isset($id)) {
+    header('location: deshboard.php');
+}
 
 ?>
 <?php
@@ -27,7 +40,7 @@ include_once('./includes/header.php');
                                 <form class="form-horizontal m-t-20" action="" method="POST">
                                     <div class="form-group row">
                                         <div class="col-12">
-                                            <input class="form-control" type="text" name="user_email" required=""
+                                            <input class="form-control" type="text" name="admin_email" required=""
                                                 placeholder="Username,E-Mail,Phone No...." />
                                         </div>
                                     </div>

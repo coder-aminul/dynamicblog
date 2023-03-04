@@ -37,7 +37,7 @@
                             class="badge badge-success float-right m-t-5">5</span><i
                             class="dripicons-gear text-muted"></i> Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i class="dripicons-exit text-muted"></i>
+                    <a class="dropdown-item" href="?adminlogout=logout"><i class="dripicons-exit text-muted"></i>
                         Logout</a>
                 </div>
             </li>

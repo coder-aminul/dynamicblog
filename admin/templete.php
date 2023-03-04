@@ -1,4 +1,27 @@
 <?php
+include('./config/functions.php');
+
+$adminObj = new Main();
+
+session_start();
+
+$id = $_SESSION['adminID'];
+if ($id === null) {
+    header('location:index.php');
+}
+
+//Admin Logout
+if (isset($_GET['adminlogout'])) {
+    if ($_GET['adminlogout'] === 'logout') {
+        $adminObj->adminLogout();
+    }
+
+}
+
+?>
+
+
+<?php
 include_once('./includes/header.php');
 
 ?>
