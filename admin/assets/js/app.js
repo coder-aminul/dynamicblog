@@ -3,11 +3,11 @@
  Author: ThemeDesign
  File: Main js
  */
-document.title='Smart Blog Admin DeshBoard'
+
 let copyWrite =document.getElementById('copyWrite')
 let dates=new Date();
 
-copyWrite.innerHTML=`© ${dates.getFullYear()} Smart Blog
+copyWrite.innerHTML=`© ${dates.getFullYear()} Smart Blog Admin Deshboard
 <span class="d-none d-md-inline-block">
   - Crafted with <i class="mdi mdi-heart text-danger"></i> by
   Aminul Islam.</span>`

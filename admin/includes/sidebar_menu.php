@@ -1,3 +1,8 @@
+<?php
+$adminids = $_SESSION['adminID'];
+
+?>
+
 <div class="left side-menu">
     <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect">
         <i class="mdi mdi-close"></i>
@@ -49,10 +54,6 @@
                         <li><a href="./add_user.php"><i class="mdi mdi-account-plus"></i> Add User</a></li>
                         <li><a href="./manage_user.php"><i class="far fa-list-alt"></i> Manage User</a></li>
                     </ul>
-                </li>
-                <li>
-                    <a href="./profile.php" class="waves-effect"><i class="far fa-user"></i><span> Profile </span>
-                    </a>
                 </li>
                 <li>
                     <a href="./settings.php" class="waves-effect"><i class="dripicons-gear"></i><span>Settings

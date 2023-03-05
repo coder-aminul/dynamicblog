@@ -5,7 +5,36 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
-    <title></title>
+    <title>
+        <?php
+        if (isset($view)) {
+            if ($view === "deshboard") {
+                echo "Deshboard";
+            } elseif ($view === "addpost") {
+                echo "Add Post";
+            } elseif ($view === "manage_post") {
+                echo "Mnaage Post";
+            } else if ($view === "add_user") {
+                echo "Add User";
+            } elseif ($view === "manage_user") {
+                echo "Manage User";
+            } elseif ($view === "add_category") {
+                echo "Add Category";
+            } elseif ($view === "manage_category") {
+                echo "Manage Categories";
+            } elseif ($view === "profile") {
+                echo "Prodile";
+            } elseif ($view === "settings") {
+                echo "Settings";
+            } elseif ($view === "edit_category") {
+                echo "Edit Category";
+            } elseif ($view === "edit_profile") {
+                echo "Edit Profile";
+            }
+        }
+
+        ?>
+    </title>
     <meta content="Admin Dashboard" name="description" />
     <meta content="smart Materials Techologies" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />

@@ -1,3 +1,9 @@
+<?php
+$adminname = $_SESSION['adminName'];
+$adminids = $_SESSION['adminID'];
+$adminimage = $_SESSION['image'];
+
+?>
 <div class="topbar">
     <div class="topbar-left d-none d-lg-block">
         <div class="text-center">
@@ -26,12 +32,14 @@
             <li class="list-inline-item dropdown notification-list nav-user">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#"
                     role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="assets/images/users/avatar-6.jpg" alt="user" class="rounded-circle" />
-                    <span class="d-none d-md-inline-block ml-1">David M. Bailey <i class="mdi mdi-chevron-down"></i>
+                    <img src="./assets/images/upload/<?php echo $adminimage ?>" alt="user" class="rounded-circle" />
+                    <span class="d-none d-md-inline-block ml-1">
+                        <?php echo $adminname ?> <i class="mdi mdi-chevron-down"></i>
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
-                    <a class="dropdown-item" href="./profile.php"><i class="dripicons-user text-muted"></i>
+                    <a class="dropdown-item" href="profile.php?status=view&&id=<?php echo $adminids ?>"><i
+                            class="dripicons-user text-muted"></i>
                         Profile</a>
                     <a class="dropdown-item" href="./settings.php"><span
                             class="badge badge-success float-right m-t-5">5</span><i

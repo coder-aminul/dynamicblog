@@ -24,6 +24,7 @@ if (isset($_GET['adminlogout'])) {
 include_once('./includes/header.php');
 
 ?>
+<!-- <img src="./assets/images/upload/" alt=""> -->
 
 <body class="fixed-left">
     <!-- Begin page -->
@@ -73,6 +74,8 @@ include_once('./includes/header.php');
                                 include('./views/settings_view.php');
                             } elseif ($view === "edit_category") {
                                 include('./views/edit_category_view.php');
+                            } elseif ($view === "edit_profile") {
+                                include('./views/edit_profile.php');
                             }
                         }
                         ?>
