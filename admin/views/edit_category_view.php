@@ -1,8 +1,16 @@
 <?php
-
-if (isset($_POST['add_category'])) {
-    $adminObj->add_category($_POST);
+if (isset($_GET['status'])) {
+    if ($_GET['status'] === 'edit') {
+        $id = $_GET['id'];
+        $retrunData = $adminObj->display_categoryBy_id($id);
+    }
 }
+
+//update
+if (isset($_POST['update_category'])) {
+    $adminObj->update_category($_POST);
+}
+
 ?>
 
 <div class="row">
@@ -10,7 +18,7 @@ if (isset($_POST['add_category'])) {
         <div class="page-title-box">
             <div class="row align-items-center">
                 <div class="col-md-8">
-                    <h4 class="page-title m-0">ADD Category</h4>
+                    <h4 class="page-title m-0">Update Category</h4>
                 </div>
 
                 <div class="col-md-4">
@@ -38,17 +46,21 @@ if (isset($_POST['add_category'])) {
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Category Name</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" name="cat_name" type="text" placeholder="Category Name">
+                                    <input class="form-control" name="update_cat_name" type="text"
+                                        value="<?php echo $retrunData['cat_name'] ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Category Description</label>
                                 <div class="col-sm-10">
-                                    <textarea name="cat_des" class="form-control" placeholder="Decription"></textarea>
+                                    <textarea name="update_cat_des"
+                                        class="form-control"><?php echo $retrunData['cat_desc'] ?></textarea>
                                 </div>
                             </div>
+                            <input type="hidden" name="cat_id" value="<?php echo $retrunData['cat_id'] ?>">
                             <div class="float-left mt-3">
-                                <button type="submit" class="btn btn-success" name="add_category">Add Category</button>
+                                <button type="submit" class="btn btn-success" name="update_category">Update
+                                    Category</button>
                             </div>
                         </form>
                     </div>

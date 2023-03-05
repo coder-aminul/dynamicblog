@@ -15,7 +15,6 @@ if (isset($_GET['adminlogout'])) {
     if ($_GET['adminlogout'] === 'logout') {
         $adminObj->adminLogout();
     }
-
 }
 
 ?>
@@ -66,12 +65,14 @@ include_once('./includes/header.php');
                                 include('./views/manage_user_view.php');
                             } elseif ($view === "add_category") {
                                 include('./views/add_cataegory.php');
-                            } elseif ($view === "add_category") {
+                            } elseif ($view === "manage_category") {
                                 include('./views/manage_category.php');
                             } elseif ($view === "profile") {
                                 include('./views/profile_view.php');
                             } elseif ($view === "settings") {
                                 include('./views/settings_view.php');
+                            } elseif ($view === "edit_category") {
+                                include('./views/edit_category_view.php');
                             }
                         }
                         ?>
