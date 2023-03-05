@@ -18,8 +18,8 @@
                     class="far fa-eye" data-toggle="tooltip" data-placement="top" title="View"></i></a>
             <a href="edit_profile.php?status=edit&&id=<?php echo $users['id'] ?>" class="mr-1 actionbtn text-dark"><i
                     class="fas fa-edit" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>
-            <a href="?status=delete&&id=<?php echo $category['id'] ?>" class="actionbtn"><i
-                    class="far fa-trash-alt text-dark" data-toggle="tooltip" data-placement="top" title="Delete"></i></a>
+            <a href="?status=delete&&id=<?php echo $users['id'] ?>" class="actionbtn"><i class="far fa-trash-alt text-dark"
+                    data-toggle="tooltip" data-placement="top" title="Delete"></i></a>
         </td>
     </tr>
 <?php } ?>

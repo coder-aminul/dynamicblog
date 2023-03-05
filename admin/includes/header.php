@@ -31,6 +31,8 @@
             } elseif ($view === "edit_profile") {
                 echo "Edit Profile";
             }
+        } else {
+            echo $app_data['app_name'];
         }
 
         ?>

@@ -2,7 +2,13 @@
 $get_profile = $adminObj->display_profile();
 
 
-//Delete Catagory
+//Delete profile
+if (isset($_GET['status'])) {
+    if ($_GET['status'] === 'delete') {
+        $id = $_GET['id'];
+        $adminObj->delete_user($id);
+    }
+}
 
 ?>
 
@@ -47,7 +53,7 @@ $get_profile = $adminObj->display_profile();
                         <h4 class="mt-0 header-title mb-4">
                             Manage Users
                             <span class="float-right">
-                                <a href="./add_category.php" class="btn btn-sm btn-success text-white">
+                                <a href="./add_user.php" class="btn btn-sm btn-success text-white">
                                     <i class="mdi mdi-credit-card-plus"></i> Add
                                 </a>
                             </span>

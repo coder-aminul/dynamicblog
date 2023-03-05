@@ -15,7 +15,9 @@ if (isset($_SESSION['adminID'])) {
 if (isset($id)) {
     header('location: deshboard.php');
 }
-
+//App Name Set Index Title
+$getapp_info = $mainObj->displaySettings();
+$app_data = mysqli_fetch_assoc($getapp_info);
 ?>
 <?php
 include_once('./includes/header.php');

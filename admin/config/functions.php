@@ -108,6 +108,15 @@ class Main
 
 
     }
+    //Delete User Profile
+    public function delete_user($id)
+    {
+        $query = "DELETE FROM admin_info WHERE id=$id";
+        if (mysqli_query($this->connection, $query)) {
+            return "User Deleted Successfully!";
+        }
+
+    }
     //Add Category
     public function add_category($data)
     {

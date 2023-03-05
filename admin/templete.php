@@ -2,7 +2,6 @@
 include('./config/functions.php');
 
 $adminObj = new Main();
-
 session_start();
 
 $id = $_SESSION['adminID'];
