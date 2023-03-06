@@ -32,7 +32,12 @@
                 echo "Edit Profile";
             }
         } else {
-            echo $app_data['app_name'];
+
+            if (isset($app_data['app_name'])) {
+                echo $app_data['app_name'];
+            } else {
+                echo "404 Not Found! || Smart Blog Admin Deshboard.";
+            }
         }
 
         ?>

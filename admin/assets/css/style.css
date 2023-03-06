@@ -3764,7 +3764,6 @@ label {
 
 .form-control {
   font-size: 13px;
-  text-transform: capitalize;
 }
 
 .form-control:focus {
