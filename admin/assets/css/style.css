@@ -3764,6 +3764,7 @@ label {
 
 .form-control {
   font-size: 13px;
+  text-transform: capitalize;
 }
 
 .form-control:focus {
@@ -4934,6 +4935,10 @@ Modal
 
   width: 50px;
   height: 50px;
+}
+
+select>option {
+  text-transform: capitalize;
 }
 
 @media (min-width: 576px) {

@@ -193,7 +193,7 @@ class Main
             return $response;
         }
     }
-
+    //Update Deshboard App
     public function updateApp($data)
     {
         $app_id = $data['id'];
@@ -207,6 +207,49 @@ class Main
         if (mysqli_query($this->connection, $query)) {
             move_uploaded_file($tmpname, './assets/images/upload/' . $app_logo);
             return "App Update Update Successfully!";
+        }
+    }
+    //Add New Post
+    public function addnewpost($data)
+    {
+        $post_title = $data['post_title'];
+        $post_content = $data['post_content'];
+        $post_status = $data['post_status'];
+        $post_catg = $data['post_category'];
+        $post_date = $data['post_date'];
+        $post_tag = $data['post_tag'];
+        $post_img = $_FILES['post_img']['name'];
+        $tmp_name = $_FILES['post_img']['tmp_name'];
+        $post_author = $_SESSION['adminName'];
+
+        $query = 'INSERT INTO `post`(`post_title`,`post_content`,`post_img`,`post_catg`,`post_author`,`post_comment_count`,`post_tag`,`post_date`,post_status) VALUES("' . $post_title . '","' . $post_content . '","' . $post_img . '","' . $post_catg . '","' . $post_author . '",3,"' . $post_tag . '","' . $post_date . '","' . $post_status . '")';
+
+        if (mysqli_query($this->connection, $query)) {
+            move_uploaded_file($tmp_name, './assets/images/upload/' . $post_img);
+            return '<div class="alert alert-success alert-dismissible fade show my-4" role="alert" style="margin-top: 85px;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <strong>Successfully!</strong> Add New Post.
+        </div>';
+        } else {
+            return '<div class="alert alert-success alert-dismissible fade show my-2" role="alert" style="margin-top: 85px;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <strong>Sorry!</strong> Failed to Add New Post!.
+        </div>';
+        }
+    }
+
+    //MANAGE POST
+//Dispaly Post
+    public function displayPost()
+    {
+        $query = "SELECT * FROM post_with_ctg";
+        if (mysqli_query($this->connection, $query)) {
+            $responseData = mysqli_query($this->connection, $query);
+            return $responseData;
         }
     }
 
