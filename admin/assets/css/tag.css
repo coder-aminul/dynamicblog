@@ -1,0 +1,32 @@
+/* tag css */
+.card-body>.tags-input-wrapper {
+    background: transparent;
+    padding: 10px;
+    border-radius: 4px;
+    max-width: 400px;
+    border: 1px solid #ccc
+}
+
+.card-body>.tags-input-wrapper input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 140px;
+    margin-left: 8px;
+}
+
+.card-body>.tags-input-wrapper .tag {
+    display: inline-block;
+    background-color: #5e72e4;
+    color: white;
+    border-radius: 40px;
+    padding: 0px 3px 0px 7px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.card-body>.tags-input-wrapper .tag a {
+    margin: 0 7px 3px;
+    display: inline-block;
+    cursor: pointer;
+}
