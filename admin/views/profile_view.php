@@ -53,7 +53,7 @@ if (isset($_GET['status'])) {
                         <div class="row justify-content-center mb-3">
                             <div class="col-lg-2">
                                 <img class="rounded" alt="200x200" width="100"
-                                    src="./assets/images/upload/<?php echo $retrunData['admin_photo'] ?>"
+                                    src="./assets/images/upload/user/<?php echo $retrunData['admin_photo'] ?>"
                                     data-holder-rendered="true">
                             </div>
                         </div>

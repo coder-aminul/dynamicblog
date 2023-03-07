@@ -32,7 +32,8 @@ $adminimage = $_SESSION['image'];
             <li class="list-inline-item dropdown notification-list nav-user">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#"
                     role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="./assets/images/upload/<?php echo $adminimage ?>" alt="user" class="rounded-circle" />
+                    <img src="./assets/images/upload/user/<?php echo $adminimage ?>" alt="user"
+                        class="rounded-circle" />
                     <span class="d-none d-md-inline-block ml-1">
                         <?php echo $adminname ?> <i class="mdi mdi-chevron-down"></i>
                     </span>

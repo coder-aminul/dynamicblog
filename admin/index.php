@@ -18,6 +18,7 @@ if (isset($id)) {
 //App Name Set Index Title
 $getapp_info = $mainObj->displaySettings();
 $app_data = mysqli_fetch_assoc($getapp_info);
+
 ?>
 <?php
 include_once('./includes/header.php');
@@ -37,7 +38,6 @@ include_once('./includes/header.php');
                                             height="40" alt="logo" /></a>
                                 </div>
                             </div>
-
                             <div class="p-2">
                                 <form class="form-horizontal m-t-20" action="" method="POST">
                                     <div class="form-group row">

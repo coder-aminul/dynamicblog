@@ -11,13 +11,12 @@
         </td>
         <td>
             <?php
-            $status = $post['post_status'];
-            if ($status === "0") {
+            $status = intval($post['post_status']);
+            if ($status === 0) {
                 echo "Published";
             } else {
                 echo "Unpublished";
             }
-
             ?>
         </td>
         <td>
@@ -26,6 +25,10 @@
         <td>
             <img width="60" src="./assets/images/upload/<?php echo $post['post_img'] ?>"
                 alt="<?php echo $post['post_img'] ?>" />
+            <a href="edit_image.php?status=editimg&&id=<?php echo $post['post_id'] ?>" class="mr-1 actionbtn text-dark">
+                <i class="fas fa-edit" data-toggle="tooltip" data-placement="top" title="Edit"></i>
+            </a>
+
         </td>
         <td>
             <a href="profile.php?status=view&&id=<?php echo $post['post_id'] ?>" class="mr-1 actionbtn text-dark"><i

@@ -10,7 +10,7 @@
             <?php echo $users['admin_email'] ?>
         </td>
         <td>
-            <img width="60" src="./assets/images/upload/<?php echo $users['admin_photo'] ?>"
+            <img width="60" src="./assets/images/upload/user/<?php echo $users['admin_photo'] ?>"
                 alt="<?php echo $users['admin_name'] ?>" />
         </td>
         <td>

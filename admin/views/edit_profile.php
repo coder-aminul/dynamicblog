@@ -69,7 +69,8 @@ if (isset($_POST['update_profile'])) {
                                 <div class="col-sm-10">
                                     <input class="form-control" name="update_photo" type="file" value="">
                                     <img class="mt-2" width="80"
-                                        src="./assets/images/upload/<?php echo $retrunData['admin_photo'] ?>" alt="">
+                                        src="./assets/images/upload/user/<?php echo $retrunData['admin_photo'] ?>"
+                                        alt="">
                                 </div>
                             </div>
                             <input type="hidden" name="id" value="<?php echo $retrunData['id'] ?>">

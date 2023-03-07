@@ -75,6 +75,10 @@ include_once('./includes/header.php');
                                 include('./views/edit_category_view.php');
                             } elseif ($view === "edit_profile") {
                                 include('./views/edit_profile.php');
+                            } elseif ($view === "edit_post") {
+                                include('./views/edit_post_view.php');
+                            } elseif ($view === "edit_image") {
+                                include('./views/edit_image_view.php');
                             }
                         }
                         ?>

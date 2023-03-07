@@ -7,7 +7,7 @@ if (isset($_GET['status'])) {
 }
 
 //update
-if (isset($_POST['update_category'])) {
+if (isset($_POST['update_img_btn'])) {
     $adminObj->update_category($_POST);
 }
 

@@ -30,3 +30,9 @@
     display: inline-block;
     cursor: pointer;
 }
+
+.dropzone>.from-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 46%;
+}

@@ -11,25 +11,27 @@
             if ($view === "deshboard") {
                 echo "Deshboard";
             } elseif ($view === "addpost") {
-                echo "Add Post";
+                echo "Add New Post";
             } elseif ($view === "manage_post") {
-                echo "Mnaage Post";
+                echo "Manage Post";
             } else if ($view === "add_user") {
-                echo "Add User";
+                echo "Add New User";
             } elseif ($view === "manage_user") {
                 echo "Manage User";
             } elseif ($view === "add_category") {
-                echo "Add Category";
+                echo "Add New Category";
             } elseif ($view === "manage_category") {
                 echo "Manage Categories";
             } elseif ($view === "profile") {
-                echo "Prodile";
+                echo "Profile";
             } elseif ($view === "settings") {
                 echo "Settings";
             } elseif ($view === "edit_category") {
                 echo "Edit Category";
             } elseif ($view === "edit_profile") {
                 echo "Edit Profile";
+            } elseif ($view === "edit_image") {
+                echo "Edit Post Image";
             }
         } else {
 

@@ -4,7 +4,7 @@ $get_posts = $adminObj->displayPost();
 if (isset($_GET['status'])) {
     if ($_GET['status'] === 'delete') {
         $id = $_GET['id'];
-        $adminObj->delete_user($id);
+        $message = $adminObj->deletePost($id);
     }
 }
 
@@ -40,7 +40,13 @@ if (isset($_GET['status'])) {
         <!-- end page-title-box -->
     </div>
 </div>
+<?php
+if (isset($message)) {
+    echo $message;
+}
 
+
+?>
 <!-- end page title -->
 <div class="page-content-wrapper">
     <div class="container-fluid">

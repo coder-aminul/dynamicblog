@@ -25,20 +25,25 @@ class Main
         $admin_pass = md5($data['password']);
 
         $query = "SELECT * FROM admin_info WHERE admin_email='$admin_email' && admin_pass='$admin_pass'";
+        try {
+            //code...
+            if (mysqli_query($this->connection, $query)) {
+                $admin_info = mysqli_query($this->connection, $query);
+                if ($admin_info) {
+                    header('location:deshboard.php');
+                    $admin_data = mysqli_fetch_assoc($admin_info);
+                    session_start();
+                    $_SESSION['adminID'] = $admin_data['id'];
+                    $_SESSION['adminName'] = $admin_data['admin_name'];
+                    $_SESSION['image'] = $admin_data['admin_photo'];
+                }
 
-        if (mysqli_query($this->connection, $query)) {
-
-            $admin_info = mysqli_query($this->connection, $query);
-
-            if ($admin_info) {
-                header('location:deshboard.php');
-                $admin_data = mysqli_fetch_assoc($admin_info);
-                session_start();
-                $_SESSION['adminID'] = $admin_data['id'];
-                $_SESSION['adminName'] = $admin_data['admin_name'];
-                $_SESSION['image'] = $admin_data['admin_photo'];
             }
+        } catch (\Throwable $th) {
+            //throw $th;
+            echo $th;
         }
+
 
     }
 
@@ -61,7 +66,7 @@ class Main
         $query = "INSERT INTO admin_info(admin_email,admin_name,admin_pass,admin_photo) VALUES('$user_email','$user_name','$user_password','$user_photo')";
 
         if (mysqli_query($this->connection, $query)) {
-            move_uploaded_file($temp, './assets/images/upload/' . $user_photo);
+            move_uploaded_file($temp, './assets/images/upload/user/' . $user_photo);
             return "Add User Successfully!";
         }
 
@@ -102,7 +107,7 @@ class Main
 
         $query = "UPDATE admin_info SET admin_email='$update_email',admin_name='$adminname_update',admin_pass='$update_password',admin_photo='$update_photo' WHERE id='$adminId'";
         if (mysqli_query($this->connection, $query)) {
-            move_uploaded_file($tmp_names, './assets/images/upload/' . $update_photo);
+            move_uploaded_file($tmp_names, './assets/images/upload/user/' . $update_photo);
             return "Profile Update Successfully!";
         }
 
@@ -111,8 +116,13 @@ class Main
     //Delete User Profile
     public function delete_user($id)
     {
+        $catch_img = "SELECT * FROM admin_info WHERE id= $id";
+        $admininfo = mysqli_query($this->connection, $catch_img);
+        $admin_data = mysqli_fetch_assoc($admininfo);
+        $delete_img = $admin_data['admin_photo'];
         $query = "DELETE FROM admin_info WHERE id=$id";
         if (mysqli_query($this->connection, $query)) {
+            unlink('./assets/images/upload/user/' . $delete_img);
             return "User Deleted Successfully!";
         }
 
@@ -214,6 +224,7 @@ class Main
     {
         $post_title = $data['post_title'];
         $post_content = $data['post_content'];
+        $content_post = str_replace(array(',', ';', ';;', '"'), '', $post_content);
         $post_status = $data['post_status'];
         $post_catg = $data['post_category'];
         $post_date = $data['post_date'];
@@ -222,7 +233,7 @@ class Main
         $tmp_name = $_FILES['post_img']['tmp_name'];
         $post_author = $_SESSION['adminName'];
 
-        $query = 'INSERT INTO `post`(`post_title`,`post_content`,`post_img`,`post_catg`,`post_author`,`post_comment_count`,`post_tag`,`post_date`,post_status) VALUES("' . $post_title . '","' . $post_content . '","' . $post_img . '","' . $post_catg . '","' . $post_author . '",3,"' . $post_tag . '","' . $post_date . '","' . $post_status . '")';
+        $query = "INSERT INTO post(post_title,post_content,post_img,post_catg,post_author,post_comment_count,post_tag,post_date,post_status) VALUES('$post_title','$content_post','$post_img','$post_catg','$post_author',3,'$post_tag','$post_date','$post_status')";
 
         if (mysqli_query($this->connection, $query)) {
             move_uploaded_file($tmp_name, './assets/images/upload/' . $post_img);
@@ -243,7 +254,7 @@ class Main
     }
 
     //MANAGE POST
-//Dispaly Post
+//Dispaly Post All Status
     public function displayPost()
     {
         $query = "SELECT * FROM post_with_ctg";
@@ -251,6 +262,90 @@ class Main
             $responseData = mysqli_query($this->connection, $query);
             return $responseData;
         }
+    }
+    //Display Public Post
+    public function display_public_post()
+    {
+        $query = "SELECT * FROM post_with_ctg WHERE post_status=0";
+        if (mysqli_query($this->connection, $query)) {
+            $response = mysqli_query($this->connection, $query);
+            return $response;
+        }
+
+    }
+    //Display Post By ID
+    public function display_post_byid($id)
+    {
+        $query = "SELECT * FROM post_with_ctg WHERE post_id=$id";
+        if (mysqli_query($this->connection, $query)) {
+            $response = mysqli_query($this->connection, $query);
+            $responseData = mysqli_fetch_assoc($response);
+            return $responseData;
+        }
+    }
+
+    //Update Post Image
+    public function update_post_image($data)
+    {
+        $id = $data['post_id'];
+        $up_post_img = $_FILES['update_post_img']['name'];
+        $tmpname = $_FILES['update_post_img']['tmp_name'];
+
+        $query = "UPDATE post SET post_img='$up_post_img' WHERE post_id=$id";
+
+        if (mysqli_query($this->connection, $query)) {
+            move_uploaded_file($tmpname, './assets/images/upload/' . $up_post_img);
+            return '<div class="alert alert-success alert-dismissible fade show my-2 mx-2" role="alert" style="margin-top: 85px;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <strong>Successfully!</strong> Update Post image.
+        </div>';
+        }
+    }
+
+    //Update Post With Out Image
+    public function update_post($data)
+    {
+        $up_post_title = $data['up_post_title'];
+        $up_post_content = $data['up_post_content'];
+        $update_content = str_replace(array(',', ';', ';;', '"'), '', $up_post_content);
+        $up_post_status = $data['up_post_status'];
+        $up_post_date = $data['up_post_date'];
+        $up_post_category = $data['up_post_category'];
+        $up_post_tag = $data['up_post_tag'];
+        $id = $data['post_id'];
+
+        $query = "UPDATE post SET post_title='$up_post_title',post_content='$update_content',post_catg='$up_post_category',post_status='$up_post_status',post_date='$up_post_date',post_tag='$up_post_tag' WHERE post_id=$id";
+
+        if (mysqli_query($this->connection, $query)) {
+
+            return '<div class="alert alert-success alert-dismissible fade show my-2 mx-2" role="alert" style="margin-top: 85px;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <strong>Successfully!</strong> Update Post image.
+        </div>';
+        }
+    }
+    //Delete Post
+    public function deletePost($id)
+    {
+        $catch_img = "SELECT * FROM post WHERE post_id= $id";
+        $post_info = mysqli_query($this->connection, $catch_img);
+        $post = mysqli_fetch_assoc($post_info);
+        $post_img = $post['post_img'];
+        $query = "DELETE FROM post WHERE post_id= $id";
+        if (mysqli_query($this->connection, $query)) {
+            unlink('./assets/images/upload/' . $post_img);
+            return '<div class="alert alert-danger alert-dismissible fade show my-2 mx-2" role="alert" style="margin-top: 85px;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <strong>Successfully!</strong> Post Deleted!.
+        </div>';
+        }
+
     }
 
 }
